@@ -77,6 +77,6 @@ _See MCU CAN Protocol for Details_
 - Extended ID: 0x0C0AA6A7  DLC: 8  Data: 0x00 0x00 0x08 0x00 0x00 0x80 0x11 0x01 (100ms cycle)
 
 **Thing To DO**
-- Make sure the message sent correctly. (Loop Test) 
+- Make sure the message sent correctly. (Send-Read / Loop Test)
 - Make sure the message sent consistent (10ms). (Timing Test)
 - Make sure the received data correctly unparsed. (Read Data Test)
