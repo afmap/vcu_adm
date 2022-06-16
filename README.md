@@ -41,14 +41,36 @@ Objective
 Feedback -> Can communication should be sent continuously according to the protocol and cannot be stopped
 
 **CAN MESSAGE**
-Cycle TX
-200ms (booting)
-10ms (send data)
-
 VCU Transmit 
-ID: 0x0800A6A7  DLC: 8  Data: 0x14 0x00 0xA2 0x3A 0x00 0x00 0x00 0x00 (10ms) -> Torque 10 Nm 
+ID: 0x0800A6A7  DLC: 8  Data: 0x14 0x00 0xA2 0x3A 0x00 0x00 0x00 0x00 -> Torque 10 Nm, Speed 0 rpm
 
-Cycle RX
-10ms motor speed/torque status
-100ms motor voltage, current, temperature
-100ms motor error status
+byte 0 : 00 01 01 00 
+byte 1 : 00 00 00 00
+byte 2 : 10 10 00 10
+byte 3 : 00 11 10 10 
+
+running mode 0 (correct)
+control mode 1 (correct)
+run mode 1 (correct)
+motor dir 0 (use 0 because not used, determine by value) 
+
+torque 10Nm (correct)
+10 + 15000 (offset) -> 3A A2 (intel syntax) 
+speed 0 (correct)
+
+ID: 0x0800A6A7  DLC: 8  Data: 0x18 0x00 0x98 0x3A 0xFC 0x3A 0x00 0x00 -> Torque 0 Nm, Speed 100 rpm
+
+byte 0 -> 00 01 10 00
+running mode 0 (correct)
+control mode 2 (correct)
+run mode 1 (correct)
+motor dir 0 (correct)
+
+3A 98 -> 98 3A (0 Nm)
+3A FC -> FC 3A (100 rpm)
+
+MCU Transmit
+_See MCU CAN Protocol for Details_
+Extended ID: 0x0C08A6A7  DLC: 8  Data: 0x60 0x3B 0x98 0x3A 0x98 0x3A 0x34 0x03
+Extended ID: 0x0C09A6A7  DLC: 8  Data: 0x00 0x00 0x00 0x00 0x98 0x0D 0x43 0x44
+Extended ID: 0x0C0AA6A7  DLC: 8  Data: 0x00 0x00 0x08 0x00 0x00 0x80 0x11 0x01
