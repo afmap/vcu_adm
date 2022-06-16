@@ -38,11 +38,15 @@ Objective
 - Using DIY VCU (Arduino Pro Mega 2560 and MCP2515).Unsucessful. No data received, fixing wiring (fixed
 - Using DIY VCU (Arduino Pro Mega 2560 and MCP2515).Unsucessful. Motor Temperature Error -> Due to wrong wiring/getting loose (fixed)
 - Using DIY VCU . Unsucessful. Data sent was wronggly formatted. Receive data from maker to send. **Error CAN Offline.** (unfixed)
+Feedback -> Can communication should be sent continuously according to the protocol and cannot be stopped
 
-Can offline is data not consistently send to the mcu. 
+**CAN MESSAGE**
 Cycle TX
 200ms (booting)
 10ms (send data)
+
+VCU Transmit 
+ID: 0x0800A6A7  DLC: 8  Data: 0x14 0x00 0xA2 0x3A 0x00 0x00 0x00 0x00 (10ms) -> Torque 10 Nm 
 
 Cycle RX
 10ms motor speed/torque status
