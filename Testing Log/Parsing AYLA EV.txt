@@ -1,0 +1,29 @@
+Example 1
+14 00 A2 3A 00 00 00 00 
+
+byte 0 : 00 01 01 00 <-(?)
+byte 1 : 00 00 00 00
+byte 2 : 10 10 00 10
+byte 3 : 00 11 10 10 
+
+running mode 0 (correct)
+control mode 1 (correct)
+run mode 1 (correct)
+motor dir 2 (use 0 because not used) 
+
+torque 10Nm (correct)
+10 + 15000 (offset) -> 3A A2 (intel syntax)
+ 
+speed 0 (correct)
+
+Example 2
+18 00 98 3A FC 3A 00 00 
+
+byte 0 -> 00 01 10 00
+running mode 0 (correct)
+control mode 2 (correct)
+run mode 1 (correct)
+motor dir 0 (correct)
+
+3A 98 -> 98 3A (0 Nm)
+3A FC -> FC 3A (100 rpm)
