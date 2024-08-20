@@ -1,6 +1,8 @@
 # vcu_adm
 ADM VCU DEVELOPMENT
 
+![Alt text](https://paultan.org/image/2022/08/daihatsu-ayla-ev-750x441.jpg)
+
 This Repository is for converting ICE Car to EV. 
 Mechanical Parts is beyon this repository scope. 
 
